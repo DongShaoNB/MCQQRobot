@@ -1,0 +1,30 @@
+import json
+
+readlanguage = open('.\\config\\language.json', 'r+', encoding='utf-8')
+readlanguagetext = readlanguage.read()
+loadlanguage = json.loads(readlanguagetext)
+ReportWhitelistCommandInServer = loadlanguage['服务器内提交白名单指令']
+SameGameIDReportWhitelist = loadlanguage['游戏ID重复提交白名单']
+SameQQReportWhitelist = loadlanguage['QQ账号重复提交白名单']
+WhitelistSuccessReportRobot = loadlanguage['白名单成功提交到机器人']
+WhitelistSuccessReportServer = loadlanguage['白名单成功提交到服务器']
+WhitelistFailReportServer = loadlanguage['白名单无法提交到服务器']
+MemberQuitGroup = loadlanguage['群成员退出群']
+MemberKickedGroup = loadlanguage['群成员被踢出群']
+WhitelistPlayerLeaveGroup = loadlanguage['有白名单玩家退/被踢出群']
+WhitelistPlayerLeaveGroupRemoveSuccess = loadlanguage['有白名单玩家退/被踢出群删除白名单成功']
+WhitelistPlayerLeaveGroupRemoveFail = loadlanguage['有白名单玩家退/被踢出群删除白名单失败']
+StartServerSuccessSendToServer = loadlanguage['开服指令发送成功']
+StartServerSuccessSendToServerButStartFail = loadlanguage['开服指令发送成功但开启失败']
+StopServerSuccessSendToServer = loadlanguage['关服指令发送成功']
+StopServerSuccessSendToServerButStopFail = loadlanguage['关服指令发送成功但关闭失败']
+SendCommandToServerSuccess = loadlanguage['发送指令发送成功']
+SendCommandToServerSuccessButServerReturnFail = loadlanguage['发送指令发送成功但服务器返回失败']
+CantUse = loadlanguage['权限不足']
+Menu = loadlanguage['菜单']
+CheckBlackBEID = loadlanguage['查云黑ID不在云黑中']
+CheckBlackBEQQ = loadlanguage['查云黑QQ不在云黑中']
+CheckBlackBEIDAndPassing = loadlanguage['查云黑ID在审核中']
+CheckBlackBEQQAndPassing = loadlanguage['查云黑QQ在审核中']
+CheckBlackBEIDAndDanger = loadlanguage['查云黑ID在云黑中']
+CheckBlackBEQQAndDanger = loadlanguage['查云黑QQ在云黑中']
