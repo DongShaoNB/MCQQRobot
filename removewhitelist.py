@@ -2,11 +2,8 @@
 #  该代码由DongShaoNB创建
 #  由DongShaoNB一人编写
 #  版权归DongShaoNB所有!
-import os
-import re
 
 from loadsettings import *
-from loadconfig import *
 from loadlanguage import *
 from sendgroupmessage import *
 from loadconfig import *
@@ -56,7 +53,6 @@ def removewhitelist(allmessage):
                                              })
 
                     zj = json.loads(response.text)
-                    print('MCSM返回:' + response.text)
                     ztm = zj["status"]
                     # 如果mcsm返回提交成功则
                     if ztm == 200:
@@ -85,6 +81,10 @@ def removewhitelist(allmessage):
                     quitgid = playid.replace(".json", "")
                     WhitelistPlayerLeaveGroup2 = WhitelistPlayerLeaveGroup.replace('<playerid>', quitgid)
                     sendgroupmessage(qqgroup, WhitelistPlayerLeaveGroup2)
+                    if BDSServer == 'true':
+                        quitgid = '"' + quitgid + '"'
+                    elif BDSServer == 'false':
+                        pass
                     response = requests.post(seth + 'api/execute/',
                                              params={
                                                  'apikey': setk
@@ -98,7 +98,6 @@ def removewhitelist(allmessage):
                                              })
 
                     zj = json.loads(response.text)
-                    print('MCSM返回:' + response.text)
                     ztm = zj["status"]
                     # 如果mcsm返回提交成功则
                     if ztm == 200:
@@ -106,6 +105,7 @@ def removewhitelist(allmessage):
                             '<playerid>', quitgid)
                         sendgroupmessage(qqgroup, WhitelistPlayerLeaveGroupRemoveSuccess2)
                         os.remove("whitelist//" + playid)
+                        print(Fore.GREEN + '[' + nowtime() + ' MCQQRobot]删除白名单记录(' + str(qqh) + ":" + quitgid + ')')
                     else:
                         WhitelistPlayerLeaveGroupRemoveFail2 = WhitelistPlayerLeaveGroupRemoveFail.replace(
                             '<playerid>', quitgid)
